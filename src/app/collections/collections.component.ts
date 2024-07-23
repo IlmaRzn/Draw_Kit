@@ -7,7 +7,7 @@ import { ColorPickerDialogComponent } from '../color-picker-dialog/color-picker-
   templateUrl: './collections.component.html',
   styleUrls: ['./collections.component.css']
 })
-export class CollectionsComponent implements OnInit{
+export class CollectionsComponent implements OnInit {
   @ViewChild('overlayContainer', { read: ViewContainerRef }) overlayContainer!: ViewContainerRef;
   selectedColor: string = '';
   colors: string[] = [];
@@ -52,11 +52,6 @@ export class CollectionsComponent implements OnInit{
     });
 
     this.colors = Array.from(colorSet);
-    if (this.colors.length > 0) {
-      this.openColorPicker(this.colors[0]);
-    } else {
-      console.log('No colors found');
-    }
     console.log('Extracted colors:', this.colors);
   }
 
@@ -93,6 +88,7 @@ export class CollectionsComponent implements OnInit{
       this.svgContent = serializer.serializeToString(this.svgDoc);
     }
   }
+
 
   downloadSvg() {
     // Implement download logic here
